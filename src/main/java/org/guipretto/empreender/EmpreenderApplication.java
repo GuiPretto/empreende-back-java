@@ -1,5 +1,6 @@
 package org.guipretto.empreender;
 
+import com.github.slugify.Slugify;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

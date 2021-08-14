@@ -1,5 +1,6 @@
 package org.guipretto.empreender.controller;
 
+import com.github.slugify.Slugify;
 import org.guipretto.empreender.entity.Empreendimento;
 import org.guipretto.empreender.exception.EmpreendimentoException;
 import org.guipretto.empreender.service.model.EmpreendimentoService;
@@ -23,7 +24,8 @@ public class EmpreendimentoController {
 
     @PostMapping
     public Empreendimento salvarEmpreendimento(@RequestBody Empreendimento empreendimento) {
-        Empreendimento novoEmpreendimento = empreendimentoService.findByNome(empreendimento.getNome());
+        Slugify slg = new Slugify();
+        Empreendimento novoEmpreendimento = empreendimentoService.findBySlug(slg.slugify(empreendimento.getNome()));
         if (novoEmpreendimento != null) {
             throw new EmpreendimentoException("Já existe uma empreendimento com este nome.", HttpStatus.CONFLICT);
         }
@@ -32,8 +34,9 @@ public class EmpreendimentoController {
 
     @PutMapping
     public Empreendimento atualizarEmpreendimento(@RequestBody Empreendimento empreendimento) {
-        Empreendimento novoEmpreendimento = empreendimentoService.findByNome(empreendimento.getNome());
-        if (novoEmpreendimento == null) {
+        Slugify slg = new Slugify();
+        Empreendimento empreendimentoExistente = empreendimentoService.findBySlug(slg.slugify(empreendimento.getNome()));
+        if (empreendimentoExistente == null) {
             throw new EmpreendimentoException("Não existe um empreendimento com este nome.", HttpStatus.NOT_FOUND);
         }
         return empreendimentoService.atualizarEmpreendimento(empreendimento);

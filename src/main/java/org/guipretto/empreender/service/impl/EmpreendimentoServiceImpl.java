@@ -34,11 +34,6 @@ public class EmpreendimentoServiceImpl implements EmpreendimentoService {
     }
 
     @Override
-    public Empreendimento findByNome(String nome) {
-        return empreendimentoRepository.findByNome(nome);
-    }
-
-    @Override
     public Empreendimento salvarEmpreendimento(Empreendimento empreendimento) {
         return empreendimentoRepository.save(empreendimento);
     }

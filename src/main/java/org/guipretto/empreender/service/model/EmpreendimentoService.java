@@ -11,8 +11,6 @@ public interface EmpreendimentoService {
 
     Empreendimento findBySlug(String slug);
 
-    Empreendimento findByNome(String nome);
-
     Empreendimento salvarEmpreendimento(Empreendimento empreendimento);
 
     Empreendimento atualizarEmpreendimento(Empreendimento empreendimento);
