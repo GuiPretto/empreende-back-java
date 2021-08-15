@@ -10,8 +10,7 @@
 	</parent>
 	<groupId>org.guipretto</groupId>
 	<artifactId>empreender</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<version>0.0.1</version>
 	<name>Empreender</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -61,6 +60,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-deploy-plugin</artifactId>
+			<version>3.0.0-M1</version>
 		</dependency>
 	</dependencies>
 
